@@ -41,7 +41,10 @@ function App() {
           }
         />
 
-        <Route path="details/:id" element={<Details />} />
+        <Route
+          path="details/:id"
+          element={<Details allProducts={allProducts} />}
+        />
       </Routes>
     </>
   );

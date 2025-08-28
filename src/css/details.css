@@ -12,7 +12,7 @@
     text-align: center;
   }
 
-  ul {
+  .details-list {
     max-width: 413px;
 
     li {
@@ -45,6 +45,16 @@
           font-size: 14px;
           font-family: sans-serif;
           line-height: 20px;
+          display: flex;
+          gap: 10px;
+          align-items: center;
+
+          span {
+            padding-block: 8px;
+            padding-inline: 8px;
+            border-radius: 20px;
+            border: 1px solid #e2e2e2;
+          }
         }
 
         .info {
@@ -70,7 +80,7 @@
   #details {
     padding-inline: 35px;
 
-    ul {
+    .details-list {
       max-width: 509px;
       margin-inline: auto;
     }
@@ -81,7 +91,7 @@
   #details {
     padding-inline: 50px;
 
-    ul {
+    .details-list {
       margin-inline: inherit;
       max-width: fit-content;
 

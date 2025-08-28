@@ -1,25 +1,16 @@
-import { memo, useEffect, useState } from "react";
+import { memo } from "react";
 import { useParams } from "react-router-dom";
 import "../css/details.css";
+import RandomProducts from "../components/RandomProducts";
 
-function Details() {
+function Details({ allProducts }) {
   const params = useParams();
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    fetch("https://api.jsonbin.io/v3/b/68afb6a543b1c97be92de0eb")
-      .then((res) => res.json())
-      .then((data) => {
-        let dataProducts = data.record;
-        setProducts(dataProducts);
-      });
-  }, []);
 
   let product;
-  let findProduct = products.find((ele) => ele.id === +params.id);
+  let findProduct = allProducts.find((ele) => ele.id === +params.id);
 
   if (findProduct) {
-    let { id, title, img, category, newPrice } = findProduct;
+    let { id, title, img, category, newPrice, color } = findProduct;
 
     product = (
       <li key={id}>
@@ -34,6 +25,9 @@ function Details() {
           </p>
           <div className="info">
             <p>category: {category}</p>
+            <p>
+              color: <span style={{ backgroundColor: `${color}` }}></span>
+            </p>
             <p>price: ${newPrice}</p>
             <button className="add-to-cart">Add to cart</button>
           </div>
@@ -46,7 +40,12 @@ function Details() {
     <>
       <section id="details">
         <h3>welcome to details product</h3>
-        <ul>{product}</ul>
+        <ul className="details-list">{product}</ul>
+
+        <div className="random-products">
+          <h3>Top shoes near you</h3>
+          <RandomProducts allProducts={allProducts} />
+        </div>
       </section>
     </>
   );
