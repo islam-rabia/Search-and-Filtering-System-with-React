@@ -1,0 +1,53 @@
+.filer-products {
+  padding-inline: 20px;
+  margin-block: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  h2 {
+    font-size: 18px;
+    font-family: sans-serif;
+    font-weight: 100;
+  }
+
+  .buttons-list {
+    display: flex;
+    justify-content: center;
+    gap: 7px;
+
+    li {
+      button {
+        background-color: #f4f4f4b3;
+        border: hidden;
+        width: 57px;
+        height: 35px;
+        border-radius: 7px;
+        cursor: pointer;
+
+        &.active {
+          background-color: #3474b8;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 640px) {
+  .filer-products {
+    padding-inline: 35px;
+  }
+}
+
+@media (min-width: 768px) {
+  .filer-products {
+    padding-inline: 50px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .filer-products {
+    padding-inline: 80px;
+  }
+}

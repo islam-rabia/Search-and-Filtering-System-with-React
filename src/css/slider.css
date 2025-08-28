@@ -1,0 +1,122 @@
+#slider {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fafafaf7;
+  width: 100%;
+  height: 100vh;
+  max-width: 236px;
+  transform: translateX(-100%);
+  transition: transform 0.4s ease-in;
+
+  &.active {
+    transform: translateX(0);
+  }
+
+  .slider-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+    align-items: center;
+    padding-inline: 20px;
+    padding-top: 20px;
+    height: 100vh;
+
+    .categories,
+    .price,
+    .colors {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 50%;
+
+      h3 {
+        font-size: 17px;
+        font-family: sans-serif;
+        font-weight: 500;
+      }
+
+      .list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        li {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          font-size: 14px;
+          font-family: sans-serif;
+          font-weight: 500;
+          cursor: pointer;
+
+          .radio {
+            position: relative;
+            width: 16px;
+            height: 16px;
+            background-color: #e5e5e5;
+            border-radius: 30px;
+
+            &.active {
+              background-color: #3474b8;
+
+              &::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 6px;
+                height: 6px;
+                border-radius: 30px;
+                background-color: white;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .btn-slider {
+      position: absolute;
+      top: 50%;
+      right: -9%;
+      transform: translateY(-50%);
+      width: 25px;
+      background-color: transparent;
+      display: flex;
+      font-size: 54px;
+      border: hidden;
+      cursor: pointer;
+      color: #979393;
+    }
+  }
+}
+
+@media (min-width: 640px) {
+  #slider {
+    .slider-content {
+      .btn-slider {
+        right: -12%;
+      }
+    }
+  }
+}
+
+@media (min-width: 1400px) {
+  #slider {
+    transition: unset;
+    transform: translateX(0);
+    position: sticky;
+    top: 0;
+
+    .slider-content {
+      padding-top: 100px;
+
+      .btn-slider {
+        display: none;
+      }
+    }
+  }
+}
