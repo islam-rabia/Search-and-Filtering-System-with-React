@@ -11,11 +11,12 @@ function App() {
   const [allProducts, setAllProducts] = useState([]);
 
   useEffect(() => {
-    fetch("/data/data.json")
+    fetch("https://api.jsonbin.io/v3/b/68afb6a543b1c97be92de0eb")
       .then((res) => res.json())
       .then((data) => {
-        setProducts(data);
-        setAllProducts(data);
+        let dataProducts = data.record;
+        setProducts(dataProducts);
+        setAllProducts(dataProducts);
       });
   }, []);
 

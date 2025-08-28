@@ -7,10 +7,11 @@ function Details() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("/data/data.json")
+    fetch("https://api.jsonbin.io/v3/b/68afb6a543b1c97be92de0eb")
       .then((res) => res.json())
       .then((data) => {
-        setProducts(data);
+        let dataProducts = data.record;
+        setProducts(dataProducts);
       });
   }, []);
 
